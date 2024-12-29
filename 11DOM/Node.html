@@ -1,0 +1,104 @@
+<!-- Node 节点的属性与方法 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="node">123</div>
+</body>
+<script>
+  /**
+   * 使用案例介绍Node属性与方法
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    const node = document.createElement("div");
+    node.textContent = "Hello, World!";
+    document.body.appendChild(node);
+
+    const node2 = document.getElementById("node");
+    // 1. 属性
+    console.log("1. 属性");
+    // 1.1 nodeType: 1 表示元素节点 2 表示属性节点 3 表示文本节点 4 表示CDATA节点 8 表示注释节点 9 表示文档节点 10 表示文档类型节点
+    console.log("1.1 nodeType:", node.nodeType);
+    // 1.2 nodeName: 元素节点的标签名
+    console.log("1.2 nodeName:", node.nodeName, node2.nodeName);
+    // 1.3 nodeValue: 元素节点的值 文本节点和注释节点的nodeValue为null
+    console.log("1.3 nodeValue:", node.nodeValue, node2.nodeValue, node2.firstChild.nodeValue);
+    // 1.4 textContent: 元素节点的文本内容
+    console.log("1.4 textContent:", node.textContent, node2.textContent);
+    // 1.5 baseURI: 元素节点的基本URI
+    console.log("1.5 baseURI:", node.baseURI);
+    // 1.6 ownerDocument: 元素节点的文档对象
+    console.log("1.6 ownerDocument:", node.ownerDocument);
+    // 1.7 nextSibling: 元素节点的下一个兄弟节点
+    console.log("1.7 nextSibling:", node.nextSibling);
+    // 1.8 previousSibling: 元素节点的上一个兄弟节点
+    console.log("1.8 previousSibling:", node.previousSibling, node2.previousSibling.nodeValue);
+    // 1.9 parentNode: 元素节点的父节点
+    console.log("1.9 parentNode:", node.parentNode);
+    // 1.10 parentElement: 元素节点的父元素节点
+    console.log("1.10 parentElement:", node.parentElement);
+    // 1.11 firstChild: 元素节点的第一个子节点
+    console.log("1.11 firstChild:", node.firstChild);
+    // 1.12 lastChild: 元素节点的最后一个子节点
+    console.log("1.12 lastChild:", node.lastChild);
+    // 1.13 childNodes: 元素节点的子节点
+    console.log("1.13 childNodes:", node.childNodes);
+    // 1.14 isConnected: 元素节点是否已连接
+    console.log("1.14 isConnected:", node.isConnected);
+
+    // 2. 方法
+    // 2.1 createElement 创建元素节点 appendChild 添加子节点
+    console.log("2. 方法");
+    const newNode = document.createElement("span");
+    newNode.textContent = "New Node";
+    node.appendChild(newNode);
+    console.log("2.1 appendChild:", node.childNodes);
+
+    // 2.2 cloneNode: 克隆节点 参数为true表示深克隆(包括子节点) 为false表示浅克隆
+    const clonedNode = node.cloneNode(true);
+    console.log("2.2 cloneNode:", clonedNode);
+
+    // 2.3 insertBefore: 在指定节点前插入新节点 参数为新节点和指定节点, 返回新节点
+    const insertedNode = document.createElement("p");
+    insertedNode.textContent = "Inserted Node";
+    const insertedNode2 = node.insertBefore(insertedNode, newNode.nextSibling);
+    console.log("2.3 insertBefore:", node.childNodes, insertedNode2);
+
+    // 2.4 removeChild: 移除指定节点
+    node.removeChild(newNode);
+    console.log("2.5 removeChild:", node.childNodes);
+
+    // 2.5 replaceChild: 替换指定节点
+    const replacedNode = document.createElement("h1");
+    replacedNode.textContent = "Replaced Node";
+    node.replaceChild(replacedNode, insertedNode);
+    console.log("2.6 replaceChild:", node.childNodes);
+
+    // 2.7 contains: 判断指定节点是否包含在当前节点中
+    console.log("2.7 contains:", node.contains(replacedNode));
+
+    // 2.8 compareDocumentPosition: 比较两个节点的文档位置
+    console.log("2.8 compareDocumentPosition:", node.compareDocumentPosition(replacedNode));
+
+    // 2.9 isEqualNode: 判断两个节点是否相等, 两个元素的属性值和子节点都相等则返回true
+    console.log("2.9 isEqualNode:", node.isEqualNode(clonedNode));
+    // 2.10 isSameNode: 判断两个节点是否是同一个节点, 两个节点指向同一个对象则返回true
+    console.log("2.10 isSameNode:", node.isSameNode(clonedNode));
+
+    // 2.11 normalize: 规范化节点, 合并相邻的文本节点
+    node.normalize();
+    console.log("2.11 normalize:", node.childNodes);
+
+    // 2.12 getRootNode: 返回当前节点的根节点
+    console.log("2.12 getRootNode:", node.getRootNode());
+  });
+</script>
+
+</html>
