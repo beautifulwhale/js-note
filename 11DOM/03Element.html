@@ -121,6 +121,20 @@
         // insertAdjacentText: 在指定位置插入文本
         element.insertAdjacentText("beforeend", "Inserted Text");
         console.log("3.12 Element.insertAdjacentText: Text inserted");
+
+        // 4. 属性相关的操作方法
+        // getAttribute: 获取指定属性的值
+        console.log("4.1 Element.getAttribute:", element.getAttribute("id"));
+        // setAttribute: 设置指定属性的值
+        element.setAttribute("data-example", "exampleValue");
+        console.log("4.2 Element.setAttribute: Attribute set");
+        // removeAttribute: 移除指定属性
+        element.removeAttribute("data-example");
+        console.log("4.3 Element.removeAttribute: Attribute removed");
+        // hasAttribute: 检查元素是否具有指定属性
+        console.log("4.4 Element.hasAttribute:", element.hasAttribute("id"));
+        // getAttributeNames: 获取元素所有属性名的数组
+        console.log("4.5 Element.getAttributeNames:", element.getAttributeNames());
       });
     </script>
   </body>
