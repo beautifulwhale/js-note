@@ -4,14 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- <script defer src="./01Event.js"></script> -->
+  <!-- <script defer src="./02常见事件.js"></script> -->
+  <script defer src="./03不常用事件.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="box">box 1</div>
     <div class="box_1">box 2</div>
   </div>
-  <ul class="list">
-  </ul>
-  <script src="./01Event.js"></script>
+  <ul class="list"></ul>
+
+  <!-- 表单部分 -->
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <!-- 拖拽部分 -->
+  <div id="draggable" style="width: 100px; height: 100px; background-color: red;" draggable="true"></div>
+
+  <!-- 资源事件测试 -->
+  <img id="testImage" src="https://via.placeholder.com/150" alt="Test Image">
+  <script id="testScript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- session历史事件测试 -->
+  <div id="pageContent">
+    <h2>页面内容</h2>
+    <button id="pushStateBtn">添加历史记录</button>
+  </div>
+
+  <!-- 网页状态事件测试 -->
+  <div id="readyStateContent">Loading...</div>
+
+  <!-- 窗口事件测试 -->
+  <div id="scrollContent" style="height: 1500px; background: linear-gradient(to bottom, #fff, #ccc);">
+    滚动内容
+  </div>
+
+  <!-- 全屏事件测试 -->
+  <button id="fullscreenBtn">进入全屏</button>
+  <div id="fullscreenElement" style="width: 200px; height: 200px; background-color: #ccc;">
+    点击进入全屏
+  </div>
+
+  <!-- 剪贴板事件测试 -->
+  <div id="clipboardTest" contenteditable="true" style="border: 1px solid #ccc; padding: 10px;">
+    这是可以复制粘贴的内容
+  </div>
+
+  <!-- 焦点事件测试 -->
+  <input type="text" id="focusTest" placeholder="焦点测试">
+
+  <!-- 自定义事件测试 -->
+  <button id="customEventBtn">触发自定义事件</button>
+  <div id="customEventTarget">自定义事件目标</div>
 </body>
 </html>
