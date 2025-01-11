@@ -1,0 +1,86 @@
+<!-- 使用Live Server 启动 -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Worker 测试</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .output {
+      background-color: #f5f5f5;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 3px;
+      min-height: 100px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Web Worker 测试页面</h1>
+
+  <!-- 基本 Worker 测试 -->
+  <div class="section">
+    <h2>1. 基本 Worker</h2>
+    <button onclick="testBasicWorker()">发送消息给 Worker</button>
+    <div id="basicOutput" class="output"></div>
+  </div>
+
+  <!-- 轮询 Worker 测试 -->
+  <div class="section">
+    <h2>2. 轮询 Worker</h2>
+    <button onclick="startPolling()">开始轮询</button>
+    <button onclick="stopPolling()">停止轮询</button>
+    <div id="pollingOutput" class="output"></div>
+  </div>
+
+  <!-- Worker 池测试 -->
+  <div class="section">
+    <h2>3. Worker 池</h2>
+    <button onclick="testWorkerPool()">测试 Worker 池</button>
+    <div id="poolOutput" class="output"></div>
+  </div>
+
+  <!-- 共享 Worker 测试 -->
+  <div class="section">
+    <h2>4. 共享 Worker</h2>
+    <button onclick="testSharedWorker()">发送共享消息</button>
+    <div id="sharedOutput" class="output"></div>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
