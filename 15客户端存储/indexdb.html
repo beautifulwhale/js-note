@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IndexDB 学习</title>
+</head>
+
+<body>
+  <h1>IndexDB 数据库操作示例</h1>
+
+  <div>
+    <h2>用户管理</h2>
+    <button id="addUser">添加用户</button>
+    <button id="getUser">获取用户</button>
+    <button id="updateUser">更新用户</button>
+    <button id="deleteUser">删除用户</button>
+  </div>
+
+  <div>
+    <h2>爱好管理</h2>
+    <button id="addHobby">添加爱好</button>
+    <button id="getUserHobbies">获取用户爱好</button>
+    <button id="queryHobbiesByCategory">按类别查询爱好</button>
+  </div>
+
+  <div>
+    <h2>索引操作</h2>
+    <button id="queryByIndex">通过索引查询</button>
+  </div>
+
+  <div>
+    <h2>游标操作</h2>
+    <button id="useCursor">使用游标遍历</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script src="03IndexDB.js"></script>
+</body>
+
+</html>
